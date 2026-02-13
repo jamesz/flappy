@@ -120,14 +120,14 @@ export class Game {
     this.exploded = true;
     this.renderer.explode(this.ghosty);
     this.audioManager.play('explosion');
-    this.state = 'GAME_OVER';
-    this.running = false;
     this.audioManager.stop('music');
     
     setTimeout(() => {
+      this.running = false;
+      this.state = 'GAME_OVER';
       this.audioManager.play('gameover');
       this.updateUI();
-    }, 1800); // Wait for explosion to complete
+    }, 1000); // Wait for explosion animation to complete
     
     if (this.score > this.highScore) {
       this.highScore = this.score;
