@@ -10,6 +10,11 @@ export class InputManager {
     document.addEventListener('keyup', (e) => this.handleKeyUp(e));
     this.canvas.addEventListener('touchstart', (e) => this.handleTouch(e));
     this.canvas.addEventListener('click', (e) => this.handleClick(e));
+    
+    // Add click handlers to overlays
+    const gameoverScreen = document.getElementById('gameover-screen');
+    gameoverScreen.addEventListener('click', (e) => this.handleClick(e));
+    gameoverScreen.addEventListener('touchstart', (e) => this.handleTouch(e));
   }
 
   handleKeyDown(e) {
