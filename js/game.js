@@ -45,6 +45,7 @@ export class Game {
     this.score = 0;
     this.initGameState();
     this.running = true;
+    this.floatingStartTime = performance.now();
     this.updateUI();
     
     // Float for 2 seconds before starting
@@ -109,11 +110,16 @@ export class Game {
   }
 
   render(deltaTime) {
+    const countdown = this.state === 'FLOATING' 
+      ? Math.ceil((2000 - (performance.now() - this.floatingStartTime)) / 1000)
+      : null;
+    
     this.renderer.render({
       ghosty: this.ghosty,
       walls: this.walls,
       groundY: this.physics.groundY,
-      exploded: this.exploded
+      exploded: this.exploded,
+      countdown: countdown
     }, deltaTime);
   }
 

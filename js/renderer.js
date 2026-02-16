@@ -18,6 +18,10 @@ export class Renderer {
       this.drawGhosty(gameState.ghosty);
     }
     
+    if (gameState.countdown !== null && gameState.countdown > 0) {
+      this.drawCountdown(gameState.ghosty, gameState.countdown);
+    }
+    
     this.updateAndDrawParticles(deltaTime);
     
     if (this.scoreFlashTime > 0) {
@@ -69,7 +73,7 @@ export class Renderer {
     
     // Rotate based on velocity
     this.ctx.rotate((ghosty.rotation * Math.PI) / 180);
-    
+
     // Draw white circle as background/fallback
     this.ctx.fillStyle = '#FFFFFF';
     this.ctx.beginPath();
@@ -143,5 +147,24 @@ export class Renderer {
       }
     }
     this.ctx.globalAlpha = 1;
+  }
+
+  drawCountdown(ghosty, countdown) {
+    const x = ghosty.x + ghosty.width / 2;
+    const y = ghosty.y + ghosty.height + 30;
+    
+    this.ctx.font = 'bold 48px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'top';
+    
+    // Draw shadow
+    this.ctx.fillStyle = '#000000';
+    this.ctx.globalAlpha = 0.5;
+    this.ctx.fillText(countdown, x + 2, y + 2);
+    
+    // Draw countdown number
+    this.ctx.globalAlpha = 1;
+    this.ctx.fillStyle = '#FFD700';
+    this.ctx.fillText(countdown, x, y);
   }
 }
