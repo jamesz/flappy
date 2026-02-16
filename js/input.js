@@ -9,6 +9,7 @@ export class InputManager {
     document.addEventListener('keydown', (e) => this.handleKeyDown(e));
     document.addEventListener('keyup', (e) => this.handleKeyUp(e));
     this.canvas.addEventListener('touchstart', (e) => this.handleTouch(e));
+    this.canvas.addEventListener('click', (e) => this.handleClick(e));
   }
 
   handleKeyDown(e) {
@@ -28,6 +29,11 @@ export class InputManager {
   }
 
   handleTouch(e) {
+    e.preventDefault();
+    this.handleJump();
+  }
+
+  handleClick(e) {
     e.preventDefault();
     this.handleJump();
   }
