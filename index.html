@@ -28,13 +28,15 @@
     </div>
 
     <!-- Game Over Screen Overlay -->
-    <div id="gameover-screen" class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70 hidden">
-      <h2 class="text-5xl font-bold text-red-500 mb-6">Game Over!</h2>
-      <div class="bg-gray-800 p-8 rounded-lg shadow-xl mb-6">
-        <p class="text-3xl text-white mb-2">Score: <span id="final-score" class="font-bold text-yellow-400" data-testid="final-score">0</span></p>
-        <p class="text-3xl text-white mb-2">High Score: <span id="final-highscore" class="font-bold text-green-400" data-testid="final-highscore">0</span></p>
+    <div id="gameover-screen" class="absolute inset-0 flex flex-col items-center justify-center hidden pointer-events-none">
+      <div class="bg-gray-600 bg-opacity-90 p-8 rounded-lg shadow-xl mb-6 pointer-events-auto">
+        <h2 class="text-5xl font-bold text-red-500 mb-6 drop-shadow-lg">Game Over!</h2>
+        <div class="bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-xl mb-6">
+          <p class="text-3xl text-white mb-2">Score: <span id="final-score" class="font-bold text-yellow-400" data-testid="final-score">0</span></p>
+          <p class="text-3xl text-white mb-2">High Score: <span id="final-highscore" class="font-bold text-green-400" data-testid="final-highscore">0</span></p>
+        </div>
+        <p class="text-2xl text-white drop-shadow-lg" data-testid="restart-instruction">Press SPACE or TAP to restart</p>
       </div>
-      <p class="text-2xl text-white" data-testid="restart-instruction">Press SPACE or TAP to restart</p>
     </div>
 
     <!-- Mute Button -->
