@@ -77,7 +77,7 @@ export class Renderer {
     // Draw white circle as background/fallback
     this.ctx.fillStyle = '#FFFFFF';
     this.ctx.beginPath();
-    this.ctx.arc(0, 0, ghosty.width / 2, 0, Math.PI * 2);
+    this.ctx.arc(0, 0, ghosty.width / 4, 0, Math.PI * 2);
     this.ctx.fill();
     
     // Flapping animation - scale vertically
