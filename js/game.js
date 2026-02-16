@@ -69,6 +69,7 @@ export class Game {
     if (this.state !== 'GAME_OVER') return;
     this.state = 'START';
     this.updateUI();
+    this.start();
   }
 
   gameLoop(currentTime) {
